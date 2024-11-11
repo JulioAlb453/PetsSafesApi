@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const usersController = require('../controllers/users');
+const userRoute = require('../controllers/users')
 
-// Rutas para los endpoints CRUD
-router.get('/obtenerUsuarios/', usersController.getAllUsers);
-router.post('/', usersController.addUser);
-router.put('/:id', usersController.updateUser);
-router.delete('/:id', usersController.deleteUser);
+router.post('/register', userRoute.registerUser);
+
+router.get('/usuarios', userRoute.getAllUser);        
+router.get('/ObtenerData/:id', userRoute.getUserData);        
+router.post('/login', userRoute.loginUser);
+router.post('/info', userRoute.getUserLoged);
+
+
+
 
 module.exports = router;
-
-
-
