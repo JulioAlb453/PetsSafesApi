@@ -13,12 +13,15 @@ const app = express();
 const cors = require('cors');
 const port = 3000;
 
+
 // Middleware para analizar los cuerpos de las solicitudes
 app.use(bodyParser.json());
 app.use('/storage', express.static('src/storage'));
-app.use(cors()); 
-
-
+var corsOptions = {
+  origin: 'http://54.221.204.89',
+  optionsSuccessStatus: 200 
+}
+app.use(cors(corsOptions));
 // Usar las rutas de los items
 app.use('/adoptadores', adoptadoresRoutes);
 app.use('/mascotas',  mascotaRoutes);
